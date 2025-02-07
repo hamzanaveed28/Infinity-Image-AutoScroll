@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Image Slider By Hamza Naveed</title>
+    <style>
+        body{
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .slider{
+            height: 250px;
+            margin: auto;
+            position: relative;
+            width: 90%;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+
+        .sliderTrack{
+            display: flex;
+            width: calc(250px * 18);
+            animation: scroll 45s linear infinite;
+        }
+
+        .sliderTrack:hover{
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll{
+            0%{
+                transform: translateX(0);
+            }
+            100%{
+                transform: translateX(calc(-250px * 9));
+            }
+        }
+        
+        .slide{
+            height: 250px;
+            width: 450px;
+            object-fit: fill;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            perspective: 100px;
+        }
+        
+        img{
+            width: 100%;
+            transition: transform 1%;
+            height: 100%;
+        }
+
+        img:hover{
+            transform: translateZ(20px);
+        }
+
+        /* For Gradient */
+        .slider::before,
+        .slider::after{
+            background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255, 255, 255, 0) 100%);
+            content: "";
+            height: 100%;
+            position: absolute;
+            width: 15%;
+            z-index: 2;
+        }
+
+        .slider::before{
+            left: 0;
+            top: 0;
+        }
+        
+        .slider::after{
+            right: 0;
+            top: 0;
+            transform: rotateZ(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="sliderTrack">
+            <!-- 9 Slides -->
+            <div class="slide"><img src="./images/img1.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img2.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img3.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img4.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img5.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img1.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img2.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img3.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img4.jpg" alt=""></div>
+            
+            <!-- Same 9 Slides (Doubled) -->
+            <div class="slide"><img src="./images/img1.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img2.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img3.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img4.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img5.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img1.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img2.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img3.jpg" alt=""></div>
+            <div class="slide"><img src="./images/img4.jpg" alt=""></div>
+            
+        </div>
+    </div>
+    <p>Developed by <a href="https://github.com/hamzanaveed28">Hamza Naveed</a></p>
+</body>
+</html>
